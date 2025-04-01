@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 const intents = [
   { label: "Anxiety-related sleep issues", value: "anxiety-related sleep issues" },
@@ -64,7 +63,7 @@ const WeightedSleepBlanketInfo = () => (
       </div>
       <div>
         <p className="mb-3">
-          <span className="font-medium">Choosing the right weight:</span> Generally recommended to select a blanket that's approximately 10% of your body weight.
+          <span className="font-medium">Choosing the right weight:</span> Generally recommended to select a blanket that&apos;s approximately 10% of your body weight.
         </p>
         <p className="mb-3">
           <span className="font-medium">Materials:</span> Usually made with glass beads or plastic pellets for weight, encased in breathable fabrics like cotton, bamboo, or cooling materials.
