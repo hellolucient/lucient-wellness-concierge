@@ -12,8 +12,32 @@ const intents = [
   { label: "Versatile everyday use", value: "versatile everyday use" }
 ];
 
-// Single generic image for weighted sleep blankets
-const WEIGHTED_BLANKET_IMAGE = "/images/weighted-sleep-blanket.jpg";
+// Add interface for product type
+interface Product {
+  "Product Name": string;
+  Brand: string;
+  "Product URL": string;
+  "Social Profile URL": string | null;
+  Type: string;
+  Subtype: string;
+  "Wellness Pillar": string;
+  "Wellness Goal": string;
+  "Price Low": number;
+  "Price High": number;
+  Currency: string;
+  "Image URL": string;
+  "Affiliate Ready": string;
+  "Affiliate Program URL": string | null;
+  "Sustainability Score": number;
+  "Sustainability Notes": string;
+  "Sustainability Verified": string;
+  "Sustainability Verification Details": string;
+  "Delivery Method": string;
+  "Availability Region(s)": string;
+  "lucient Fit Score": number;
+  "lucient Fit Notes": string;
+  "Category Reference ID": string;
+}
 
 // Category information components
 const WeightedSleepBlanketInfo = () => (
@@ -52,7 +76,7 @@ const WeightedSleepBlanketInfo = () => (
 
 export default function Home() {
   const [intent, setIntent] = useState("");
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<Product[]>([]);
 
   const handleSearch = async (selectedIntent: string) => {
     if (!selectedIntent) {
@@ -69,7 +93,7 @@ export default function Home() {
     const products = await productRes.json();
 
     const matchingNames = intentMap[selectedIntent];
-    const matches = products.filter((p: any) => matchingNames.includes(p["Product Name"]));
+    const matches = products.filter((p: Product) => matchingNames.includes(p["Product Name"]));
     setResults(matches);
   };
 
