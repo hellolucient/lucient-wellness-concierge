@@ -122,58 +122,61 @@ export default function Home() {
         <div>
           <WeightedSleepBlanketInfo />
           <div className="space-y-4">
-            {results.map((item, idx) => (
-              <div key={idx} className="border p-4 rounded shadow">
-                <div className="flex gap-4">
-                  <div className="relative w-32 h-32 flex-shrink-0">
-                    <Image
-                      src="/images/weighted-sleep-blanket.svg"
-                      alt="Weighted Sleep Blanket"
-                      width={128}
-                      height={128}
-                      className="rounded"
-                    />
+            {results.map((product) => (
+              <div key={product["Product Name"]} className="bg-white p-6 rounded-lg shadow">
+                <h3 className="text-xl font-semibold mb-2">{product["Product Name"]}</h3>
+                <p className="text-gray-600 mb-4">{product["Wellness Goal"]}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="mb-2">
+                      <span className="font-medium">Brand:</span> {product.Brand}
+                    </p>
+                    <p className="mb-2">
+                      <span className="font-medium">Price:</span> {product.Currency} {product["Price Low"]} - {product["Price High"]}
+                    </p>
+                    <p className="mb-2">
+                      <span className="font-medium">Sustainability Score:</span> {product["Sustainability Score"]}/5
+                    </p>
                   </div>
-                  <div className="flex-grow">
-                    <h2 className="text-xl font-semibold">{item["Product Name"]}</h2>
-                    <p className="text-sm text-gray-600 mb-2">{item["Brand"]}</p>
-                    <p className="text-sm mb-2">{item["lucient Fit Notes"]}</p>
-                    <div className="flex flex-wrap gap-2 mb-2">
-                      <span className="text-sm bg-gray-100 px-2 py-1 rounded">
-                        ${item["Price Low"]} – ${item["Price High"]} USD
-                      </span>
-                      <span className="text-sm bg-gray-100 px-2 py-1 rounded">
-                        Sustainability: {item["Sustainability Score"]}/5
-                      </span>
-                      {item["Sustainability Verified"] === "Yes" && (
-                        <div className="relative inline-block group">
-                          <span className="text-sm text-green-600 flex items-center gap-1">
-                            <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                            </svg>
-                            Verified Sustainable
-                          </span>
-                          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <div className="bg-gray-900 text-white text-xs rounded p-2 shadow-lg">
-                              <div className="font-semibold mb-1">Verification Details:</div>
-                              <div>{item["Sustainability Verification Details"]}</div>
-                              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-900"></div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    {item["Product URL"] && (
-                      <a
-                        href={item["Product URL"]}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline text-sm"
-                      >
-                        View Product →
-                      </a>
-                    )}
+                  <div>
+                    <p className="mb-2">
+                      <span className="font-medium">Type:</span> {product.Type}
+                    </p>
+                    <p className="mb-2">
+                      <span className="font-medium">Subtype:</span> {product.Subtype}
+                    </p>
+                    <p className="mb-2">
+                      <span className="font-medium">lucient Fit Score:</span> {product["lucient Fit Score"]}/10
+                    </p>
                   </div>
+                </div>
+                <div className="mt-4">
+                  <p className="mb-2">
+                    <span className="font-medium">Sustainability Notes:</span> {product["Sustainability Notes"]}
+                  </p>
+                  <p className="mb-2">
+                    <span className="font-medium">lucient Fit Notes:</span> {product["lucient Fit Notes"]}
+                  </p>
+                </div>
+                <div className="mt-4 flex gap-4">
+                  <a
+                    href={product["Product URL"]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800"
+                  >
+                    View Product
+                  </a>
+                  {product["Social Profile URL"] && (
+                    <a
+                      href={product["Social Profile URL"]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800"
+                    >
+                      View Social Profile
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
