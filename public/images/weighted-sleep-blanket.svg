@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="256" height="256" fill="#F8FAFC" rx="16"/>
+  
+  <!-- Quilted pattern -->
+  <g stroke="#E2E8F0" stroke-width="2">
+    <path d="M48 48h160v160H48z"/>
+    <path d="M48 88h160M48 128h160M48 168h160"/>
+    <path d="M88 48v160M128 48v160M168 48v160"/>
+  </g>
+
+  <!-- Comfort waves representing weight and pressure -->
+  <path d="M88 208c8-6 16-6 24 0s16 6 24 0 16-6 24 0 16 6 24 0" 
+        stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Sleep symbols (zzz) -->
+  <g fill="#64748B">
+    <path d="M180 64l-12 16h12l-12 16h12"/>
+    <path d="M160 72l-10 14h10l-10 14h10"/>
+    <path d="M140 80l-8 12h8l-8 12h8"/>
+  </g>
+
+  <!-- Text -->
+  <text x="128" y="236" fill="#475569" font-family="system-ui" font-size="14" text-anchor="middle">
+    Weighted Sleep Blanket
+  </text>
+</svg> 
